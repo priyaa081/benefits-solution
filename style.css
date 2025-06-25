@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.flex-container {
+    display: flex;
+    gap: 20px;
+}
+
+.categories {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.category h2 {
+    margin-top: 0;
+}
+
+#health-cards, #life-cards, #accident-cards {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.card-option {
+    cursor: pointer;
+}
+
+.card-option input[type="radio"] {
+    display: none;
+}
+
+.card {
+    border: 1px solid #aaa;
+    padding: 10px;
+    width: 200px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.card-option input[type="radio"]:checked + .card {
+    border-color: #007BFF;
+    background-color: #E0F0FF;
+}
+
+.card h3 {
+    margin: 0 0 5px 0;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.summary {
+    flex: 1;
+    border: 1px solid #aaa;
+    padding: 10px;
+    height: fit-content;
+}
+
+.summary h2 {
+    margin-top: 0;
+}
+
+#final-summary {
+    margin-top: 20px;
+    border-top: 2px solid #000;
+    padding-top: 10px;
+}
