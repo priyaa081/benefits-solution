@@ -1,76 +1,216 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-}
-
-.flex-container {
+    background-color: #fff;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #0033cc;
+    margin-bottom: 30px;
+  }
+  
+  .flex-container {
     display: flex;
-    gap: 20px;
-}
-
-.categories {
+    gap: 30px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .categories {
     flex: 3;
     display: flex;
     flex-direction: column;
+    gap: 30px;
+    width: 100%;
+  }
+  
+  .category {
+    padding-bottom: 10px;
+    /* removed border-bottom */
+  }
+  
+  .category h2 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .category h2:nth-of-type(1),
+  #health-cards ~ h2 {
+    color: #0033cc;
+  }
+  
+  .category:nth-of-type(2) h2 {
+    color: green;
+  }
+  
+  .category:nth-of-type(3) h2 {
+    color: orange;
+  }
+  
+  /* Card grid layout */
+  #health-cards,
+  #life-cards,
+  #accident-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-}
-
-.category {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-.category h2 {
-    margin-top: 0;
-}
-
-#health-cards, #life-cards, #accident-cards {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.card-option {
+  }
+  
+  .card-option {
     cursor: pointer;
-}
-
-.card-option input[type="radio"] {
+  }
+  
+  .card-option input[type="radio"] {
     display: none;
-}
-
-.card {
-    border: 1px solid #aaa;
-    padding: 10px;
-    width: 200px;
-    transition: background 0.2s, border-color 0.2s;
-}
-
-.card-option input[type="radio"]:checked + .card {
+  }
+  
+  .card {
+    border: 2px solid #000;
+    padding: 15px;
+    width: 100%;
+    height: 170px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fff;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card-option input[type="radio"]:checked + .card {
     border-color: #007BFF;
-    background-color: #E0F0FF;
-}
-
-.card h3 {
-    margin: 0 0 5px 0;
-}
-
-.card p {
-    margin: 5px 0;
-}
-
-.summary {
+    box-shadow: 0 0 10px #007bff66;
+  }
+  
+  /* Category-specific highlight colors */
+  #health-cards input[type="radio"]:checked + .card {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+  }
+  
+  #life-cards input[type="radio"]:checked + .card {
+    background-color: #e8f5e9;
+    border-color: #4caf50;
+  }
+  
+  #accident-cards input[type="radio"]:checked + .card {
+    background-color: #fff3e0;
+    border-color: #ff9800;
+  }
+  
+  .card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .card p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+  
+  .card p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+  }
+  
+  /* Summary panel */
+  .summary {
     flex: 1;
-    border: 1px solid #aaa;
+    min-width: 250px;
+    border: 1px solid #000;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+  }
+  
+  .summary h2 {
+    background-color: #006400;
+    color: white;
+    text-align: center;
     padding: 10px;
-    height: fit-content;
-}
-
-.summary h2 {
-    margin-top: 0;
-}
-
-#final-summary {
+    margin: -15px -15px 10px -15px;
+    font-size: 18px;
+  }
+  
+  .summary p {
+    margin: 8px 0;
+    font-size: 15px;
+  }
+  
+  #checkout {
+    background-color: #006400;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  #checkout:hover {
+    background-color: #004d00;
+  }
+  
+  #print-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+  }
+  
+  #final-summary {
     margin-top: 20px;
-    border-top: 2px solid #000;
     padding-top: 10px;
-}
+  }
+  
+  /* Table summary styling */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .summary-table th,
+  .summary-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .summary-table .header {
+    background-color: #006400;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .summary-table .green {
+    color: green;
+  }
+  
+  /* Responsive layout */
+  @media screen and (max-width: 768px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  
+    .categories {
+      width: 100%;
+    }
+  
+    .summary {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    .card {
+      height: auto;
+    }
+  }
+  
