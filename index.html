@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Flexible Benefits Selection</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Flexible Benefits Selection</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Flexible Benefits Selection</h1>
-    <div class="flex-container">
-        <div class="categories">
-            <div class="category">
-                <h2>Health</h2>
-                <div id="health-cards"></div>
-            </div>
-            <div class="category">
-                <h2>Life</h2>
-                <div id="life-cards"></div>
-            </div>
-            <div class="category">
-                <h2>Accident</h2>
-                <div id="accident-cards"></div>
-            </div>
-        </div>
-        <div class="summary">
-            <h2>Summary</h2>
-            <p>Used: <span id="used-amount">0</span></p>
-            <p>Available: <span id="available-amount">1400</span></p>
-            <p>You Pay: <span id="you-pay">0</span></p>
-            <button id="checkout">Checkout</button>
-            <button id="print-btn">Print PDF</button>
-        </div>
-    </div>
-    <div id="final-summary" style="display:none;">
-        <!-- Detailed summary inserted here on checkout -->
+  <h1>Flexible Benefits Selection</h1>
+
+  <div class="flex-container">
+    <div class="categories">
+      <div class="category">
+        <h2>Health</h2>
+        <div id="health-cards"></div>
+      </div>
+      <div class="category">
+        <h2>Life</h2>
+        <div id="life-cards"></div>
+      </div>
+      <div class="category">
+        <h2>Accident</h2>
+        <div id="accident-cards"></div>
+      </div>
     </div>
 
-    <script src="health.js"></script>
-    <script src="life.js"></script>
-    <script src="accident.js"></script>
-    <script src="script.js"></script>
+    <div class="summary">
+      <div class="wallet-header">Wallet Allocation : 1400</div>
+
+      <div class="wallet-table">
+        <table id="wallet-details">
+          <thead>
+            <tr>
+              <th>Point</th>
+              <th>Multiplier</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="wallet-rows"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2"><strong>Total</strong></td>
+              <td><strong id="wallet-total">0</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="status-box">
+        <table>
+          <tr><td>Wallet Amount</td><td>1400</td></tr>
+          <tr><td>Used</td><td><span id="used-amount">0</span></td></tr>
+          <tr><td>Available</td><td><span id="available-amount">1400</span></td></tr>
+          <tr><td>You Pay</td><td><span id="you-pay">0</span></td></tr>
+        </table>
+      </div>
+
+      <button id="checkout">Checkout</button>
+    </div>
+  </div>
+
+  <script src="health.js"></script>
+  <script src="life.js"></script>
+  <script src="accident.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
