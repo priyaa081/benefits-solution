@@ -71,26 +71,37 @@ function showFinalSummary() {
           margin: 30px;
         }
         .back-link {
-          position: absolute;
-          top: 20px;
-          left: 20px;
           font-size: 16px;
           font-weight: bold;
           color: #007bff;
           background: none;
           border: none;
           padding: 6px 12px;
-          text-decoration: none;
           cursor: pointer;
-          transition: color 0.2s ease;
         }
         .back-link:hover {
           color: #004bb1;
         }
+        .print-button {
+          font-size: 14px;
+          background-color: #006400;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 16px;
+          cursor: pointer;
+          margin-top: 25px;
+        }
+        .print-button:hover {
+          background-color: #004d00;
+        }
+        .print-center {
+          text-align: center;
+        }
         h2 {
           text-align: center;
           color: #006400;
-          margin-top: 60px;
+          margin-top: 20px;
         }
         table {
           width: 100%;
@@ -163,6 +174,11 @@ function showFinalSummary() {
           </tr>
         </tfoot>
       </table>
+
+      <div class="print-center">
+        <button class="print-button" onclick="window.print()">🖨️ Print PDF</button>
+      </div>
+
     </body>
     </html>
   `;
